@@ -2,9 +2,10 @@ import { Button, Input } from '@mui/material';
 import { useReducer, useRef, useEffect } from "react";
 import reducer, { initState } from './reducer';
 import { setTask, addTask, deleteTask } from './actions';
+import logger from './logger';
 
 function TodoApp() {
-    const [state, dispatch] = useReducer(reducer, initState)
+    const [state, dispatch] = useReducer(logger(reducer), initState)
     const { task, tasks } = state
 
     const inputRef = useRef()
